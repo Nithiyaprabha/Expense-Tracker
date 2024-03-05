@@ -84,7 +84,7 @@ app.delete('/delete-expense/:id',async function(request,response){
         const expenseData = await Expense.findById(request.params.id)
         console.log(request.params.id)
     if(expenseData){
-       await Expense.findById(request.params.id)
+       await Expense.findByIdAndDelete(request.params.id)
        response.status(200).json({
         "status":"success",
         "message" : "deleted entry",
